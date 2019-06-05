@@ -1,0 +1,6 @@
+Researched Image Processors
+Decided on using
+JetPack 3.3
+TensorFlow
+on the mobilenet_v1_Op25_128 this was the fastest clocking in at 8ms for the TX2
+downloaded the proper files, began tests need a camera for updates currently using still images
