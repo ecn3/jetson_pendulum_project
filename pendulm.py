@@ -43,7 +43,9 @@ class Target:
             cv.inRange(hsv_img,(165,145,100),(250,210,160),threshold_img1) #red
             cv.inRange(hsv_img,(0,145,100),(10,210,160),threshold_img1a)   #red again
             cv.add(threshold_img1,threshold_img1a,threshold_img1)          #this is combining the two limits for red
-            cv.inRange(hsv_img,(105,180,40),(120,260,100),threshold_img2)  #blue
+	    cv.inRange(hsv_img,(36,25,25),(70,255,255),threshold_img1)  #Green
+            #cv.inRange(hsv_img,(105,180,40),(120,260,100),threshold_img2)  #blue
+
  
  
             #determine the moments of the two objects
@@ -69,8 +71,6 @@ class Target:
                 #draw circle
                 cv.circle(img,(x1,y1),2,(0,255,0),20)
  
-                #write x and y position
-                cv.putText(img,str(x1)+","+str(y1),(x1,y1+20),font, 1,(255,255,255)) #Draw the text
  
             if (area2 >100000):
                 #x and y coordinates of the center of the object is found by dividing the 1,0 and 0,1 moments by the area
