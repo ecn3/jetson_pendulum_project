@@ -6,7 +6,8 @@ import numpy as np
 class Target:
     def __init__(self):
         self.capture = cv.VideoCapture("/dev/video1")
-     
+        
+        
     def run(self):
         #initiate font
         font = cv.FONT_HERSHEY_SIMPLEX
