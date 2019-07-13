@@ -56,7 +56,7 @@ class Target:
                 y1=int(moments1['m01']/area1)
  
                 #draw circle
-                cv.circle(img,(x1,y1),2,(0,255,0),20)
+                cv.circle(img,(x1,y1),2,(0,0,255),20)
  
  
             if (area2 >100000):
@@ -67,25 +67,19 @@ class Target:
                 #draw circle
                 cv.circle(img,(x2,y2),2,(0,255,0),20)
  
-                cv.putText(img,str(x2)+","+str(y2),(x2,y2+20),font, 1,(255,255,255)) #Draw the text
-                cv.line(img,(x1,y1),(x2,y2),(0,255,0),4,cv.LINE_AA)
-                #draw line and angle
-                #cv.line(img,(x1,y1),(frame_height, frame_width, y1),(100,100,100,100),4,cv.LINE_AA)
+		#draw line measure angle
+                cv.line(img,(x1,y1),(x2,y2),(255,0,0),4,cv.LINE_AA)
             x1=float(x1)
             y1=float(y1)
             x2=float(x2)
             y2=float(y2)
             angle = int(math.atan((y1-y2)/(x2-x1))*180/math.pi)
+	    #this is our angle text
             cv.putText(img,str(angle),(int(x1)+50,(int(y2)+int(y1))/2),font, 4,(255,255,255))
- 
-            #cv.writeFrame(writer,img)
- 
-          
+
             #display frames to users
             cv.imshow("Target",img)
-            #cv.imshow("Threshold1",threshold_img1)
-            #cv.imshow("Threshold2",threshold_img2)
-            #cv.imshow("hsv",hsv_img)
+
             # Listen for ESC or ENTER key
             c = cv.waitKey(7) % 0x100
             if c == 27 or c == 10:
